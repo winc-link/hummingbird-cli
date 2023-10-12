@@ -30,4 +30,5 @@ var (
 	HttpProtocolDriver      = "winc-link/hummingbird-http-driver"
 	WebSocketProtocolDriver = "winc-link/hummingbird-websocket-driver"
 	ModbusProtocolDriver    = "winc-link/hummingbird-modbus-driver"
+	OpcuaProtocolDriver     = "winc-link/hummingbird-opcua-driver"
 )

@@ -121,6 +121,7 @@ func (p *Project) cloneTemplate() (bool, error) {
 				"HTTP",
 				"WebSocket",
 				"Modbus-TCP",
+				"OPC-UA",
 			},
 			//Description: func(value string, index int) string {
 			//	if index == 1 {
@@ -168,6 +169,8 @@ func (p *Project) cloneTemplate() (bool, error) {
 			repo = repo + config.WebSocketProtocolDriver
 		case "Modbus-TCP":
 			repo = repo + config.ModbusProtocolDriver
+		case "OPC-UA":
+			repo = repo + config.OpcuaProtocolDriver
 		}
 		err = os.RemoveAll(p.ProjectName)
 		if err != nil {
