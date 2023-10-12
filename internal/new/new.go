@@ -37,11 +37,13 @@ var CmdNew = &cobra.Command{
 	Run:     run,
 }
 var (
-	repoURL string
+	repoURL     string
+	ProjectName string
 )
 
 func init() {
-	CmdNew.Flags().StringVarP(&repoURL, "repo-url", "r", repoURL, "layout repo")
+	//CmdNew.Flags().StringVarP(&repoURL, "repo-url", "r", repoURL, "layout repo")
+	CmdNew.Flags().StringVarP(&ProjectName, "p", "p", ProjectName, "project name")
 
 }
 func NewProject() *Project {
@@ -118,6 +120,7 @@ func (p *Project) cloneTemplate() (bool, error) {
 				"CoAP",
 				"HTTP",
 				"WebSocket",
+				"Modbus-TCP",
 			},
 			//Description: func(value string, index int) string {
 			//	if index == 1 {
@@ -163,7 +166,8 @@ func (p *Project) cloneTemplate() (bool, error) {
 			repo = repo + config.HttpProtocolDriver
 		case "WebSocket":
 			repo = repo + config.WebSocketProtocolDriver
-
+		case "Modbus-TCP":
+			repo = repo + config.ModbusProtocolDriver
 		}
 		err = os.RemoveAll(p.ProjectName)
 		if err != nil {
